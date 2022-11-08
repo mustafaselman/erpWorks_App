@@ -5,6 +5,26 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function OrderList()
 {
+ 
+const[response,setResponse] = useState([]);
+const[error,setError] = useState('');
+const[loading,setLoading] = useState("verileriniz yükleniyor lütfen bekleyiniz...");
+
+    const fetchData = async () => {
+        try {
+            const response = await axios("http://localhost:3333/posts");
+        const {data} = response
+        setResponse(data);
+        } catch (error) {
+            setError(error.message)
+        }
+       
+    }
+    useEffect(()=> {
+        fetchData();
+    },[])
+//    console.log(response)
+//    console.log(json.posts)
     return (
       
         <div >
@@ -24,6 +44,9 @@ function OrderList()
 <br/>
 
 <div className="container">
+{
+            response?.length === 0 ? <p>{loading}</p> : 
+        
 <table className="table table-bordered">
   <thead>
     <tr>
@@ -51,13 +74,13 @@ function OrderList()
     </tr>
   </thead>
   <tbody>
-
+       
             {
 
-json.posts.length === 0 ? <p>{alert}</p> : json.posts.map((post,index) =>
+response?.map((post,index) =>
 {console.log(post)
     return (
-        <tr>
+        <tr key={index}>
       <td>{post.siparisNo}</td>
       <td>{post.siparisTarihi}</td>
       <td>{post.musteriSiparisNo}</td>
@@ -91,6 +114,7 @@ json.posts.length === 0 ? <p>{alert}</p> : json.posts.map((post,index) =>
 
 </tbody>
 </table>
+}
 </div>
         </div>
     )
