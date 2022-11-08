@@ -9,22 +9,22 @@ function OrderList()
       
         <div >
 
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="/homelayout">Anasayfa</a>
+<ul className="nav">
+  <li className="nav-item">
+    <a className="nav-link active" aria-current="page" href="/homelayout">Anasayfa</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/createorder">Sipariş Oluştur</a>
+  <li className="nav-item">
+    <a className="nav-link" href="/createorder">Sipariş Oluştur</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/orderlist">Sipariş Detaylı Listesi</a>
+  <li className="nav-item">
+    <a className="nav-link" href="/orderlist">Sipariş Detaylı Listesi</a>
   </li>
 
 </ul>
 <br/>
 
 <div className="container">
-<table class="table table-bordered">
+<table className="table table-bordered">
   <thead>
     <tr>
       <th scope="col">Sipariş No</th>
