@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import json from "../json.json"
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function OrderList()
@@ -12,7 +11,7 @@ const[loading,setLoading] = useState("verileriniz yükleniyor lütfen bekleyiniz
 
     const fetchData = async () => {
         try {
-            const response = await axios("http://localhost:3333/posts");
+            const response = await axios("http://localhost:3001/posts");
         const {data} = response
         setResponse(data);
         } catch (error) {
